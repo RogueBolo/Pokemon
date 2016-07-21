@@ -1,5 +1,5 @@
 class Pokemon:
-	def __init__(self,species, hp, Type, attack, defense, special_attack, special_defense,attack1,attack2):
+	def __init__(self,species, hp, Type, attack, defense,attack_1,attack_2):
 		#stats
 		self.species = species
 		self.hp = hp
@@ -9,8 +9,8 @@ class Pokemon:
 		#self.special_attack = special_attack
 		#self.special_defense = special_defense
 		#self.speed = speed
-		self.attack1 = attack1
-		self.attack2 = attack2
+		self.attack_1 = attack_1
+		self.attack_2 = attack_2
 
 		#Stat get/set
 	def species(self):
@@ -55,12 +55,12 @@ class Pokemon:
 
 
 	def attack1(self, victim):				#think about doing one defintion with a dictionary or list So no repeat of attack functions
-		victim_hp = victim.takedamage(self.attack1.get_damage())
-		print("Victim's new hp is {}, it went down by {}".format(victim_hp, self.attack1_damage))
+		victim_hp = victim.take_damage(self.attack_1.get_damage())
+		print("Victim's new hp is {}, it went down by {}".format(victim_hp, self.attack_1.get_damage()))
 
 	def attack2(self,victim):
-		victim_hp = victim.takedamage(self.attack1_damage)
-		print("Victim's new hp is {}, it went down by {}".format(victim_hp, self.attack2_damage))
+		victim_hp = victim.take_damage(self.attack_1_damage)
+		print("Victim's new hp is {}, it went down by {}".format(victim_hp, self.attack_2.get_damage()))
 
 
 
