@@ -1,0 +1,26 @@
+Pokemon
+-HP
+-Type
+-Attack
+-Defense
+-Special Attack
+-Special Defence
+-Speed
+
+
+
+- attack1_strength_name
+- attack2_strength_name
+- attack3_strength_name
+- attack4_strength_name
+
+
+Actions
+- attack 1
+- attack 2
+- attack 3
+- attack 4
+- Run 
+
+
+-take a hit

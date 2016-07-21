@@ -1,0 +1,13 @@
+$$$TO DO$$$
+Get Pokemon to take damage correctly
+
+
+
+$$$------$$$
+Variables to be stored in Pokemon
+$Stats
+
+
+$Attacks
+pp
+power
