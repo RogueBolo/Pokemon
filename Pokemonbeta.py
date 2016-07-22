@@ -3,7 +3,7 @@ import random
 import time
 
 class Pokemon:
-        def __init__(self,species, hp, Type, attack, defense,attack_1,attack_2):
+        def __init__(self,species, hp, Type, attack, defense,attack_1,attack_2, attack_3, attack_4):
                 #stats
                 self.species = species
                 self.hp = hp
@@ -15,6 +15,8 @@ class Pokemon:
                 #self.speed = speed
                 self.attack_1 = attack_1
                 self.attack_2 = attack_2
+                self.attack_3 = attack_3
+                self.attack_4 = attack_4
 
                 #Stat get/set
         def species(self):
@@ -66,6 +68,14 @@ class Pokemon:
                 victim_hp = victim.take_damage(self.attack_2.get_damage())
                 print("Victim's new hp is {}, it went down by {}".format(victim_hp, self.attack_2.get_damage()))
 
+        def attack3(self,victim):
+                victim_hp = victim.take_damage(self.attack_3.get_damage())
+                print("Victim's new hp is {}, it went down by {}".format(victim_hp, self.attack_3.get_damage()))
+
+        def attack4(self,victim):
+                victim_hp = victim.take_damage(self.attack_4.get_damage())
+                print("Victim's new hp is {}, it went down by {}".format(victim_hp, self.attack_4.get_damage()))
+
 
 
 class AttackMechanics:
@@ -106,11 +116,15 @@ class AttackMechanics:
 #ATTACK ACCURACIES SET TO 100 FOR TESTING
 tackle = AttackMechanics(35,40,100)
 flamethrower = AttackMechanics(75,25,100)
+hyperbeam = AttackMechanics(75, 30, 100)
+icepunch = AttackMechanics(70, 35, 100)
 
 
 #hits or misses based on the accuracy of the attacks, set at 40
 attack_1 = tackle
 attack_2 = flamethrower
+attack_3 = hyperbeam
+attack_4 = icepunch
 
 
 
@@ -118,7 +132,11 @@ attack_2 = flamethrower
 p = input("What pokemon would you like to use?(infernape or mewto)\n")
 
 
-z = input("What attack to use?(tackle or flamethrower)\n")
+z = input("What attack to use?(tackle, flamethrower, hyperbeam or ice punch)\n")
+
+
+accuracy = 0
+
 
 if z == "tackle":
         accuracy = tackle.get_accuracy()
@@ -127,16 +145,23 @@ if z == "tackle":
 elif z == "flamethrower":
         accuracy = flamethrower.get_accuracy()
 
+elif z == "hyperbeam":
+        accuracy = hyperbeam.get_accuracy()
+
+elif z == "ice punch":
+        accuracy = icepunch.get_accuracy()
+        
 
 
 
 
-a = accuracy
+
+
 x = random.randint(1,100)
 
 
 
-if x >= a:
+if x >= accuracy:
         print("Miss!")
         y = False
 
@@ -145,8 +170,8 @@ else:
         y = True
 
         
-infernape = Pokemon("infernape",207, "Fire", 150,75,tackle,flamethrower)
-mewtwo = Pokemon("Mewtwo",300, "Psychic", 150,100,tackle,flamethrower)
+infernape = Pokemon("infernape",207, "Fire", 150,75,tackle,flamethrower, hyperbeam, icepunch)
+mewtwo = Pokemon("Mewtwo",300, "Psychic", 150,100,tackle,flamethrower, hyperbeam, icepunch)
 
 
 if y == True:
@@ -176,6 +201,34 @@ if y == True:
                         print("Mewtwo attacked with flamethrower!")
                         time.sleep(1)
                         mewtwo.attack2(infernape)
+                        print("ouch.")
+
+        elif z == "hyperbeam":
+                print(hyperbeam.get_damage())
+                if p == "infernape":
+                        print("Infernape attacked with hyperbem!")
+                        time.sleep(1)
+                        infernape.attack3(mewtwo)
+                        print("ouch.")
+
+                elif p == "mewto":
+                        print("Mewtwo attacked with hyperbeam!")
+                        time.sleep(1)
+                        mewtwo.attack3(infernape)
+                        print("ouch.")
+
+        elif z == "ice punch":
+                print(icepunch.get_damage())
+                if p == "infernape":
+                        print("Infernape attacked with ice punch!")
+                        time.sleep(1)
+                        infernape.attack4(mewtwo)
+                        print("ouch.")
+
+                elif p == "mewto":
+                        print("Mewtwo attacked with ice punch!")
+                        time.sleep(1)
+                        mewtwo.attack4(infernape)
                         print("ouch.")
                 
       
