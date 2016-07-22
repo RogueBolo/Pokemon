@@ -107,6 +107,7 @@ class AttackMechanics:
 tackle = AttackMechanics(35,40,100)
 flamethrower = AttackMechanics(75,25,100)
 
+
 #hits or misses based on the accuracy of the attacks, set at 40
 attack_1 = tackle
 attack_2 = flamethrower
