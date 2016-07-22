@@ -112,7 +112,12 @@ attack_1 = tackle
 attack_2 = flamethrower
 
 
-z = input("What attack to use?(tackle or flamethrower)")
+
+
+p = input("What pokemon would you like to use?(infernape or mewto)\n")
+
+
+z = input("What attack to use?(tackle or flamethrower)\n")
 
 if z == "tackle":
         accuracy = tackle.get_accuracy()
@@ -122,7 +127,7 @@ elif z == "flamethrower":
         accuracy = flamethrower.get_accuracy()
 
 
-p = input("What pokemon would you like to use?(infernape or mewto)")
+
 
 
 a = accuracy
@@ -130,13 +135,13 @@ x = random.randint(1,100)
 
 
 
-if x <= a:
-        print("Hit!")
-        y = True
-
-else:
+if x >= a:
         print("Miss!")
         y = False
+
+else:
+        print("Hit!")
+        y = True
 
         
 infernape = Pokemon("infernape",207, "Fire", 150,75,tackle,flamethrower)
